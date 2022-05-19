@@ -6,7 +6,6 @@ import org.springframework.messaging.MessageHeaders;
 import org.springframework.messaging.handler.annotation.Headers;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
 import sri.s26462.f1supportsystem.receiver.mapper.EngineParameterMapper;
 import sri.s26462.f1supportsystem.config.JmsConfig;
 import sri.s26462.f1supportsystem.model.BolidParameterMessage;

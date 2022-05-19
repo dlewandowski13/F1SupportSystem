@@ -27,6 +27,7 @@ public class MessageRouter {
         String receiveMessage;
         EngineParameterDto engineParameterDto = engineParameterMapper.convertBolidParameterMessageToDto(convertedMessage);
         System.out.println("MessageRouter.receiveBolidParameter, message: " + engineParameterDto);
+        //TODO Check rest parameters
         if(engineParameterDto.getEngineTemp() > 100) {
             receiveMessage = "The engine temperature is to high - " + engineParameterDto.getEngineTemp();
             alertProducer.sendDriverAlert(receiveMessage,"driver");
