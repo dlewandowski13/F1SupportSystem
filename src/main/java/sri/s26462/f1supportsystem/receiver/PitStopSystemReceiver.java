@@ -21,7 +21,7 @@ public class PitStopSystemReceiver {
     private final EngineParameterMapper engineParameterMapper;
     private final EngineParameterRepository engineParameterRepository;
 
-    @JmsListener(destination = JmsConfig.QUEUE_BOLID_STATS, containerFactory = "queueConnectionFactory")
+    @JmsListener(destination = JmsConfig.TOPIC_BOLID_STATS, containerFactory = "topicConnectionFactory")
     public void receiveBolidParameter(@Payload BolidParameterMessage convertedMessage,
                                     @Headers MessageHeaders messageHeaders,
                                     Message message) {

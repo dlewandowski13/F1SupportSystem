@@ -25,7 +25,7 @@ public class BolidParameterProducer {
                 .oilPressure(BolidParameterMessage.setRandPressure())
                 .oilTemp(BolidParameterMessage.setRandTemp())
                 .build();
-        jmsTemplate.convertAndSend(JmsConfig.QUEUE_BOLID_STATS, bolidParameterMessage);
+        jmsTemplate.convertAndSend(JmsConfig.TOPIC_BOLID_STATS, bolidParameterMessage);
         System.out.println("BolidParameterProducer.sendBolidParametersMessage - sent message: "
         + bolidParameterMessage);
     }
