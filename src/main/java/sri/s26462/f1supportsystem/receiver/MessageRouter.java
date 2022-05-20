@@ -9,8 +9,7 @@ import org.springframework.stereotype.Component;
 import sri.s26462.f1supportsystem.producer.AlertProducer;
 import sri.s26462.f1supportsystem.receiver.mapper.EngineParameterMapper;
 import sri.s26462.f1supportsystem.config.JmsConfig;
-import sri.s26462.f1supportsystem.model.BolidParameterMessage;
-import sri.s26462.f1supportsystem.receiver.receiverDto.EngineParameterDto;
+import sri.s26462.f1supportsystem.model.EngineParameterDto;
 
 import javax.jms.Message;
 @Component
@@ -21,17 +20,17 @@ public class MessageRouter {
     private final AlertProducer alertProducer;
 
     @JmsListener(destination = JmsConfig.TOPIC_BOLID_STATS, containerFactory = "topicConnectionFactory")
-    public void receiveBolidParameter(@Payload BolidParameterMessage convertedMessage,
+    public void receiveBolidParameter(@Payload EngineParameterDto convertedMessage,
                                       @Headers MessageHeaders messageHeaders,
                                       Message message) {
         String receiveMessage;
-        EngineParameterDto engineParameterDto = engineParameterMapper.convertBolidParameterMessageToDto(convertedMessage);
+        sri.s26462.f1supportsystem.receiver.receiverDto.EngineParameterDto engineParameterDto = engineParameterMapper.convertBolidParameterMessageToDto(convertedMessage);
         System.out.println("MessageRouter.receiveBolidParameter, message: " + engineParameterDto);
         //TODO Check rest parameters
         if(engineParameterDto.getEngineTemp() > 100) {
             receiveMessage = "The engine temperature is to high - " + engineParameterDto.getEngineTemp();
             alertProducer.sendDriverAlert(receiveMessage,"driver");
-            if (engineParameterDto.getEngineTemp() > 850){
+            if (engineParameterDto.getEngineTemp() > 600){
                 alertProducer.sendDriverAlert(receiveMessage,"mechanic");
             }
         }

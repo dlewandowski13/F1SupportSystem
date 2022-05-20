@@ -3,8 +3,7 @@ package sri.s26462.f1supportsystem.receiver.mapper;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
-import sri.s26462.f1supportsystem.model.BolidParameterMessage;
-import sri.s26462.f1supportsystem.receiver.receiverDto.EngineParameterDto;
+import sri.s26462.f1supportsystem.model.EngineParameterDto;
 import sri.s26462.f1supportsystem.receiver.receiverModel.EngineParameter;
 
 @Component
@@ -20,12 +19,12 @@ public class EngineParameterMapper {
 //        return modelMapper.map(engineParameterDto, EngineParameter.class);
 //    }
 
-    public EngineParameter convertBolidParameterMessageToEntity(BolidParameterMessage bolidParameterMessage) {
+    public EngineParameter convertBolidParameterMessageToEntity(EngineParameterDto bolidParameterMessage) {
         return modelMapper.map(bolidParameterMessage, EngineParameter.class);
     }
 
-    public EngineParameterDto convertBolidParameterMessageToDto(BolidParameterMessage bolidParameterMessage) {
-        return modelMapper.map(bolidParameterMessage, EngineParameterDto.class);
+    public sri.s26462.f1supportsystem.receiver.receiverDto.EngineParameterDto convertBolidParameterMessageToDto(EngineParameterDto bolidParameterMessage) {
+        return modelMapper.map(bolidParameterMessage, sri.s26462.f1supportsystem.receiver.receiverDto.EngineParameterDto.class);
     }
 
 

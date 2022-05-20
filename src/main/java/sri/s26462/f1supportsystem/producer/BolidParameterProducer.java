@@ -5,7 +5,7 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import sri.s26462.f1supportsystem.config.JmsConfig;
-import sri.s26462.f1supportsystem.model.BolidParameterMessage;
+import sri.s26462.f1supportsystem.model.EngineParameterDto;
 
 import java.time.LocalDateTime;
 
@@ -17,13 +17,13 @@ public class BolidParameterProducer {
 
     @Scheduled(fixedRate = 15000)
     public void sendBolidParametersMessage() {
-        BolidParameterMessage bolidParameterMessage = BolidParameterMessage.builder()
-                .id(BolidParameterMessage.nextId())
+        EngineParameterDto bolidParameterMessage = EngineParameterDto.builder()
+                .id(EngineParameterDto.nextId())
                 .createdAt(LocalDateTime.now())
-                .engineTemp(BolidParameterMessage.setRandTemp())
-                .tirePressure(BolidParameterMessage.setRandPressure())
-                .oilPressure(BolidParameterMessage.setRandPressure())
-                .oilTemp(BolidParameterMessage.setRandTemp())
+                .engineTemp(EngineParameterDto.setRandTemp())
+                .tirePressure(EngineParameterDto.setRandPressure())
+                .oilPressure(EngineParameterDto.setRandPressure())
+                .oilTemp(EngineParameterDto.setRandTemp())
                 .build();
         jmsTemplate.convertAndSend(JmsConfig.TOPIC_BOLID_STATS, bolidParameterMessage);
         System.out.println("BolidParameterProducer.sendBolidParametersMessage - sent message: "

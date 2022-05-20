@@ -14,4 +14,5 @@ public class F1SupportSystemApplication {
 
     @Bean
     public ModelMapper modelMapper() { return new ModelMapper(); }
+
 }

@@ -20,7 +20,6 @@ import javax.jms.Session;
 @Configuration
 public class JmsConfig {
 
-    public static final String QUEUE_BOLID_STATS = "BOLID_STATS.QUEUE";
     public static final String TOPIC_BOLID_STATS = "BOLID_STATS.TOPIC";
     public static final String DRIVER_ALERT = "DRIVER_ALERT.QUEUE";
     public static final String MECHANIC_ALERT = "MECHANIC_ALERT.QUEUE";

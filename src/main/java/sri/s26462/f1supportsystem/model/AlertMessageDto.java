@@ -7,36 +7,23 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import lombok.*;
 
 import java.time.LocalDateTime;
-import java.util.Random;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class BolidParameterMessage {
+public class AlertMessageDto {
 
     private static long idIndex = 0;
 
-    public static long nextId(){
+    public static long nextId() {
         return idIndex++;
     }
 
-    private long id;
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     private LocalDateTime createdAt;
-    private float engineTemp;
-    private int tirePressure;
-    private int oilPressure;
-    private float oilTemp;
-
-    public static float setRandTemp(){
-        return new Random().nextFloat(0,1000);
-    }
-
-    public static int setRandPressure(){
-        return new Random().nextInt(0,1000);
-    }
-
+    private long id;
+    private String message;
 }
