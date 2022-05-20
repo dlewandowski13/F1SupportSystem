@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class EngineParameterDto {
+public class ReceiverEngineParameterDto {
 
     private Long id;
     private Long bolidId;

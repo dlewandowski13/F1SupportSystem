@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 import sri.s26462.f1supportsystem.model.EngineParameterDto;
+import sri.s26462.f1supportsystem.receiver.receiverDto.ReceiverEngineParameterDto;
 import sri.s26462.f1supportsystem.receiver.receiverModel.EngineParameter;
 
 @Component
@@ -11,11 +12,11 @@ import sri.s26462.f1supportsystem.receiver.receiverModel.EngineParameter;
 public class EngineParameterMapper {
     private final ModelMapper modelMapper;
 
-//    public EngineParameterDto convertToDto(EngineParameter engineParameter) {
-//        return modelMapper.map(engineParameter, EngineParameterDto.class);
+//    public ReceiverEngineParameterDto convertToDto(EngineParameter engineParameter) {
+//        return modelMapper.map(engineParameter, ReceiverEngineParameterDto.class);
 //    }
 //
-//    public EngineParameter convertToEntity(EngineParameterDto engineParameterDto) {
+//    public EngineParameter convertToEntity(ReceiverEngineParameterDto engineParameterDto) {
 //        return modelMapper.map(engineParameterDto, EngineParameter.class);
 //    }
 
@@ -23,8 +24,8 @@ public class EngineParameterMapper {
         return modelMapper.map(bolidParameterMessage, EngineParameter.class);
     }
 
-    public sri.s26462.f1supportsystem.receiver.receiverDto.EngineParameterDto convertBolidParameterMessageToDto(EngineParameterDto bolidParameterMessage) {
-        return modelMapper.map(bolidParameterMessage, sri.s26462.f1supportsystem.receiver.receiverDto.EngineParameterDto.class);
+    public ReceiverEngineParameterDto convertBolidParameterMessageToDto(EngineParameterDto bolidParameterMessage) {
+        return modelMapper.map(bolidParameterMessage, ReceiverEngineParameterDto.class);
     }
 
 

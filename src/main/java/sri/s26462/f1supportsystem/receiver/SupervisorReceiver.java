@@ -52,7 +52,7 @@ public class SupervisorReceiver {
             reply = "Come into pitstop";
         }
 
-        System.out.println("MechanicReceiver.pitstopReceive, message: " + convertedMessage);
+        System.out.println("SupervisorReceiver.pitstopReceive, message: " + convertedMessage);
         Destination replyTo = message.getJMSReplyTo();
         AlertMessageDto msg = AlertMessageDto.builder()
                 .id(AlertMessageDto.nextId())

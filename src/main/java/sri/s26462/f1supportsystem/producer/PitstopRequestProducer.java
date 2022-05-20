@@ -48,7 +48,6 @@ public class PitstopRequestProducer {
         String responseText = responseMessage.getText();
         EngineParameterDto responseConverted = objectMapper.readValue(responseText, EngineParameterDto.class);
         System.out.println("PitstopRequestProducer.pitstopRequest got response: "
-                + responseText+"\n\tconvertedMessage: "
-                + responseConverted);
+                + responseText);
     }
 }
